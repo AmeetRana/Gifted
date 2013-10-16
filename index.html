@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+		<meta charset="utf-8">
+		<title>rainyday.js</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<style media="screen">
+			img { display: none; }
+			body { overflow: hidden; }
+			#canvas { position: absolute; top: 0; left: 0; }
+			
+		</style>
+		<script src="js/rainyday1.js"></script>
+		<script>
+			function demo() {
+				var image = document.getElementById('background');
+				image.onload = function() {
+					var engine = new RainyDay('canvas', 'background', window.innerWidth, window.innerHeight, 1,20);
+
+					var preset = 1;
+					if (preset == 1) {
+						engine.gravity = engine.GRAVITY_NON_LINEAR;
+						engine.trail = engine.TRAIL_DROPS;
+						engine.reflection=engine.REFLECTION_MINIATURE
+						engine.rain([ engine.preset(3, 3, 0.88), engine.preset(5, 5, 0.9), engine.preset(6, 2, 1) ], 100);
+					} else if (preset == 2) {
+						engine.gravity = engine.GRAVITY_NON_LINEAR;
+						engine.trail = engine.TRAIL_DROPS;
+						engine.VARIABLE_GRAVITY_ANGLE = Math.PI / 8;
+						engine.rain([ engine.preset(0, 2, 0.5), engine.preset(4, 4, 1) ], 50);
+					} else if (preset == 3) {
+						engine.gravity = engine.GRAVITY_NON_LINEAR;
+						engine.trail = engine.TRAIL_SMUDGE;
+						engine.rain([ engine.preset(0, 2, 0.5), engine.preset(4, 4, 1) ], 50);
+					}
+				};
+				image.crossOrigin = 'anonymous';
+				image.src='/img/image1.jpg';
+		
+			}
+		</script>
+	</head>
+	<body onload="demo();">
+		<img id="background" alt="background" src="/img/image1.jpg" crossorigin="anonymous">
+		<div id="cholder">
+			<canvas id="canvas" width="1366" height="667" style="width: 1366px; height: 667px;"></canvas>
+		</div>
+	</body>
+</html>
