@@ -2,7 +2,11 @@
  * Defines a new instance of the rainyday.js.
  * @param canvasid DOM id of the canvas used for rendering
  * @param sourceid DOM id of the image element used as background image
- * @param width width of the rendering
+ * @param width width of t
+
+
+
+ he rendering
  * @param height height of the rendering
  * @param opacity opacity attribute value of the glass canvas (default: 1)
  * @param blur blur radius (default: 20)
